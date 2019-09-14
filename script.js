@@ -76,23 +76,23 @@
 
 
 
-var a = 'Hello!';
-first();
+// var a = 'Hello!';
+// first();
 
-function first() {
-    var b = 'Hi!';
-    second();
+// function first() {
+//     var b = 'Hi!';
+//     second();
 
-    function second() {
-        var c = 'Hey!';
-        third()
-    }
-}
+//     function second() {
+//         var c = 'Hey!';
+//         third()
+//     }
+// }
 
-function third() {
-    var d = 'John';
-    console.log(c);
-}
+// function third() {
+//     var d = 'John';
+//     console.log(c);
+// }
 
 
 
@@ -100,10 +100,36 @@ function third() {
 // Lecture: The this keyword
 
 
+// console.log(this);
+
+// calcAge(1985);
+
+// function calcAge(year) {
+//     console.log(2019 - year);
+//     console.log(this);
+// }
 
 
+var john = {
+    name: 'John',
+    yearBirth: 1990,
+    calcAge: function() {
+        console.log(this);
+        console.log(2019 - this.yearBirth);
 
+        // function inner() {
+        //     console.log(this);
+        // }
+        // inner();
+    }
+}
 
+john.calcAge();
 
+var mike = {
+    name: 'Mike',
+    yearBirth: 1984,
+};
 
-
+mike.calAge = john.calcAge;
+mike.calAge();
